@@ -1,4 +1,4 @@
-#  import statements
+0#  import statements
 
 
 # functions go here
@@ -25,9 +25,27 @@ def not_blank(question, error_message):
 # ask user if they have used program before & show instructions if nessesary
 
 # loop to get ticket details
+name = ""
+count = 0
+MAX_TICKETS = 5
+  
+  #get details...
+name = input("Name: ")
+count += 1
+print()
+
+if name == "xxx":
+  print("You have sold {} tickets.  \n"
+    "There are {} places still avaliable"
+    .format(count, MAX_TICKETS - count))
+elif count == MAX_TICKETS:
+  print("You have sold all the avalible tickets!")
+else:
+  print("You have {} seats "
+        "left".format(MAX_TICKETS - count))
 
   # get name (can't be blank)
-name = not_blank("Name: ", "Sorry, This can't be blank, please enter your name")
+#name = not_blank("Name: ", "Sorry, This can't be blank, please enter your name")
   
   # get age (between 12-130)
   
