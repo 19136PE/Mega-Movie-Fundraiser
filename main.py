@@ -4,7 +4,7 @@
 # functions go here
 
   #checks that ticket name is not blank
-def not_blank(question, error_message):
+def not_blank(question):
   valid = False
 
   while not valid:
@@ -16,11 +16,13 @@ def not_blank(question, error_message):
 
     #if name is blank, show error (& repeat loop)
     else:
-      print(error_message)
+      print("Sorry, this can't be blank")
+      print()
 
 
 def int_check(question, low_num, high_num):
   error = "Please enter a whole number between {} and {}".format(low_num, high_num)
+  empty_int = "Sorry, this cannot be blank"
 
   valid = False
   while not valid:
@@ -30,9 +32,11 @@ def int_check(question, low_num, high_num):
         return response
       else:
         print(error)
+        print()
 
     except ValueError:
-      print(error)
+      print(empty_int)
+      print()
 
 
 # ************ Main Routine ************
@@ -48,8 +52,7 @@ MAX_TICKETS = 5
   
   #get details...
 while MAX_TICKETS != count:
-  name = input("Name: ")
-
+  name = not_blank("Name: ")
 
   # get age (between 12-130)
   age = int_check("Age: ", 12, 130)
