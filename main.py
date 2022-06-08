@@ -19,10 +19,8 @@ def not_blank(question):
       print("Sorry, this can't be blank")
       print()
 
-
 def int_check(question, low_num, high_num):
   error = "Please enter a whole number between {} and {}".format(low_num, high_num)
-  empty_int = "Sorry, this cannot be blank"
 
   valid = False
   while not valid:
@@ -35,11 +33,11 @@ def int_check(question, low_num, high_num):
         print()
 
     except ValueError:
-      print(empty_int)
+      print(error)
       print()
 
 
-# ************ Main Routine ************
+# ****** Main Routine ******
 
 # set-up dictionarys / lists needed to hold data
 
@@ -55,16 +53,19 @@ while MAX_TICKETS != count:
   name = not_blank("Name: ")
 
   # get age (between 12-130)
-  age = int_check("Age: ", 12, 130)
 
   if name == "xxx":
     print("You have sold {} tickets.  \n"
       "There are {} places still avaliable"
       .format(count, MAX_TICKETS - count))
+    exit()
   elif count == MAX_TICKETS - 1:
+    
     count += 1
+    age = int_check("Age: ", 12, 130)
     print("You have sold all the avalible tickets!")
   else:
+    age = int_check("Age: ", 12, 130)
     count += 1
     print("You have {} seats "
           "left".format(MAX_TICKETS - count))
