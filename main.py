@@ -19,21 +19,19 @@ def not_blank(question):
       print("Sorry, this can't be blank")
       print()
 
-def int_check(question, low_num, high_num):
-  error = "Please enter your current age".format(low_num, high_num)
+def int_check(question):
+  error = "Please enter your current age"
 
   valid = False
   while not valid:
     try:
-      response = int(input(question))
-      if low_num <= response <= high_num:
-        return response
-      elif age < 12:
+      age = int(input(question))
+      if age < 12:
         print("Sorry, You are too young for this movie.")
       elif age >= 130:
         print("This is very old, seems like an error.")
       else:
-        continue
+        return age
     except ValueError:
       print(error)
       print()
@@ -64,11 +62,11 @@ while MAX_TICKETS != ticket_count:
     break
   elif ticket_count == MAX_TICKETS - 1:
     ticket_count += 1
-    age = int_check("Age: ", 12, 130)
+    age = int_check("Age: ")
     print("You have sold all the avalible tickets!")
     print()
   else:
-    age = int_check("Age: ", 12, 130)
+    age = int_check("Age: ")
     ticket_count += 1
     print("You have {} seats "
           "left".format(MAX_TICKETS - ticket_count))
