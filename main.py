@@ -30,10 +30,8 @@ def int_check(question, low_num, high_num):
         return response
       elif age < 12:
         print("Sorry, You are too young for this movie.")
-        continue
-      elif age > 130:
-        print("This is a little old, seems like an error.")
-        continue
+      elif age >= 130:
+        print("This is very old, seems like an error.")
       else:
         continue
     except ValueError:
@@ -60,11 +58,11 @@ while MAX_TICKETS != ticket_count:
 
   if name == "xxx":
     print("You have sold {} tickets.  \n"
-      "There are {} places still avaliable"
-      .format(ticket_count, MAX_TICKETS - ticket_count))
+          "There are {} places still avaliable. \n"
+          "Profit from Tickets: ${:.2f}"
+      .format(ticket_count, MAX_TICKETS - ticket_count, profit))
     break
   elif ticket_count == MAX_TICKETS - 1:
-    
     ticket_count += 1
     age = int_check("Age: ", 12, 130)
     print("You have sold all the avalible tickets!")
@@ -77,16 +75,19 @@ while MAX_TICKETS != ticket_count:
 
   if age < 16:
     ticket_price = 7.5
-  elif age >65:
-    ticket_price = 10.5
-  else:
+  elif age >= 65:
     ticket_price = 6.5
+  else:
+    ticket_price = 10.5
     
   profit_made = ticket_price - 5
   profit += profit_made
-  print("{} : ${:.2f}".format(name, ticket_price))
+  if name == "xxx":
+    continue
+  else:
+    print("{} : ${:.2f}".format(name, ticket_price))
   print()
-print("Profit from Tickets: ${:.2f}".format(profit))
+
 
   # calculate ticket prices
 
